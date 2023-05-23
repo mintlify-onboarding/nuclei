@@ -1,0 +1,50 @@
+---
+title: "Index"
+---
+
+## Automate Vulnerability Scans with **Nuclei**
+
+Nuclei can help you ensure the security of complex networks / applications. With vulnerability scans,
+Nuclei can identify security issues on your network. Once configured, Nuclei can
+provide detailed information on each vulnerability, including:
+
+- Severity
+- Impact
+- Description
+- Remediation
+
+Once you've set up templates, you can automate scans of your systems with every change
+to your network, and with every discovery of new security issues.
+
+In this Getting Started guide, we describe how you can set up Nuclei to automate
+vulnerability scans on a relatively simple network. You can then use our [Templating
+Guide](/templating-guide/introduction) to customize Nuclei for your networks.
+
+## **Nuclei** Features
+
+<Note>
+
+**Features**
+
+- **HTTP**, **DNS**, **TCP**, **SSL**, **FILE** protocol support
+- Fully configurable templates.
+- Large scale scanning.
+- Out of band based detection.
+- Easily write your own templates.
+
+</Note>
+
+
+## **Nuclei** Installation
+
+<CodeGroup>
+
+```go Go
+go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+```
+
+<Note> 
+ Nuclei require latest **GO** version to install successfully.
+ </Note>
+
+</CodeGroup>
