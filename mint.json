@@ -20,6 +20,11 @@
       "name": "Follow for Updates",
       "icon": "twitter",
       "url": "https://twitter.com/pdnuclei"
+    },
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.gg/projectdiscovery"
     }
   ],
   "navigation": [
@@ -87,6 +92,13 @@
         "template-examples/network",
         "template-examples/workflow",
         "template-examples/helper-functions"
+      ]
+    },
+    {
+      "group": "FAQ",
+      "pages": [
+        "faq/nuclei",
+        "faq/templates"
       ]
     }
   ],
