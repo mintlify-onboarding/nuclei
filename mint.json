@@ -26,7 +26,45 @@
     {
       "group": "Getting Started",
       "pages": [
-        "getting-started/index"
+        "home",
+        "getting-started/index",
+        "getting-started/features",
+        "getting-started/contribution",
+        "getting-started/license"
+      ]
+    },
+    {
+      "group": "Templating Guide",
+      "pages": [
+        "templating-guide/introduction",
+        "templating-guide/template-details",
+        {
+          "group": "HTTPs",
+          "pages": [
+            "templating-guide/http/base-http",
+            "templating-guide/http/raw-http",
+            "templating-guide/http/http-payloads",
+            "templating-guide/http/http-fuzzing",
+            "templating-guide/http/unsafe-http",
+            "templating-guide/http/advance-http"
+          ]
+        },
+        "templating-guide/headless",
+        "templating-guide/network",
+        "templating-guide/dns",
+        "templating-guide/file",
+        {
+          "group": "Operators",
+          "pages": [
+            "templating-guide/operators/matchers",
+            "templating-guide/operators/extractors"
+          ]
+        },
+        "templating-guide/oob-testing",
+        "templating-guide/helper-functions",
+        "templating-guide/variables",
+        "templating-guide/preprocessors",
+        "templating-guide/workflows"
       ]
     },
     {
