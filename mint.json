@@ -68,16 +68,25 @@
       ]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "Template Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        {
+          "group": "HTTP",
+          "pages": [
+            "template-examples/http/base-http",
+            "template-examples/http/raw-http",
+            "template-examples/http/http-fuzzing",
+            "template-examples/http/http-smuggling",
+            "template-examples/http/http-payloads",
+            "template-examples/http/http-race-conditions"
+          ]
+        },
+        "template-examples/dns",
+        "template-examples/file",
+        "template-examples/headless",
+        "template-examples/network",
+        "template-examples/workflow",
+        "template-examples/helper-functions"
       ]
     }
   ],
