@@ -15,9 +15,31 @@
     "type": "github",
     "url": "https://github.com/projectdiscovery/nuclei"
   },
+  "feedback": {
+    "suggestEdit": true
+  },
+  "topAnchor": {
+    "name": "Getting Started",
+    "icon": "circle-play"
+  },
   "anchors": [
     {
-      "name": "Follow for Updates",
+      "name": "Templating Guide",
+      "icon": "book-open",
+      "url": "templating-guide"
+    },
+    {
+      "name": "Template Examples",
+      "icon": "books",
+      "url": "template-examples"
+    },
+    {
+      "name": "FAQ",
+      "icon": "messages",
+      "url": "faq"
+    },
+    {
+      "name": "Twitter",
       "icon": "twitter",
       "url": "https://twitter.com/pdnuclei"
     },
@@ -31,7 +53,6 @@
     {
       "group": "Getting Started",
       "pages": [
-        "home",
         "getting-started/index",
         "getting-started/features",
         "getting-started/contribution",
