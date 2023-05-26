@@ -2,11 +2,8 @@
 title: 'Features'
 ---
 
-## **Nuclei** Features
-
 <Note>
-
-**Features**
+#### Features
 
 - **HTTP**, **DNS**, **TCP**, **SSL**, **FILE** protocol support
 - Fully configurable templates.
@@ -73,9 +70,9 @@ title: 'Features'
     <Tip>
     This Helm chart creates two primary resources (intended to be configured via `values.yaml`):
 
-        - A Kubernetes CronJob to run Nuclei on a defined schedule
+      - A Kubernetes CronJob to run Nuclei on a defined schedule
 
-        - An [Interactsh](https://github.com/projectdiscovery/interactsh) service for Nuclei to use
+      - An [Interactsh](https://github.com/projectdiscovery/interactsh) service for Nuclei to use
     </Tip>
 
 </Tab>
@@ -97,14 +94,14 @@ To use this feature, users need to set the following environment variables:
 
 <AccordionGroup>
   <Accordion title="For GitHub Project" icon="pencil">
-    ```
+    ```bash
     export GITHUB_TOKEN=gh_XXX
     export GITHUB_TEMPLATE_REPO=my_nuclei_template
     ```
 
   </Accordion>
   <Accordion title="For GitLab Project" icon="pencil">
-    ```
+    ```bash
     export GITLAB_SERVER_URL=https://gitlab.com
     # The GitLab token must have the read_api and read_repository scope
     export GITLAB_TOKEN=XXXXXXXXXX
@@ -113,25 +110,31 @@ To use this feature, users need to set the following environment variables:
     ```
   </Accordion>
 
-{' '}
-
 <Accordion title="For AWS Bucket" icon="pencil">
-  ``` export AWS_ACCESS_KEY=AKIAXXXXXXXX export AWS_SECRET_KEY=XXXXXX export
-  AWS_REGION=us-xxx-1 export AWS_TEMPLATE_BUCKET=aws_bucket_name ```
+
+```bash
+export AWS_ACCESS_KEY=AKIAXXXXXXXX export AWS_SECRET_KEY=XXXXXX export
+  AWS_REGION=us-xxx-1 export AWS_TEMPLATE_BUCKET=aws_bucket_name
+```
+
 </Accordion>
 <Accordion title="For Azure Blob Storage" icon="pencil">
-  ``` export AZURE_TENANT_ID=00000000-0000-0000-0000-000000000000 export
+
+```bash
+export AZURE_TENANT_ID=00000000-0000-0000-0000-000000000000 export
   AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000 export
   AZURE_CLIENT_SECRET=00000000-0000-0000-0000-000000000000 export
   AZURE_SERVICE_URL=https://XXXXXXXXXX.blob.core.windows.net/ export
-  AZURE_CONTAINER_NAME=templates ```
+  AZURE_CONTAINER_NAME=templates
+```
+
 </Accordion>
 
 </AccordionGroup>
 
 Once the environment variables are set, following command to download the custom templates:
 
-```
+```bash
 nuclei -update-templates
 ```
 
@@ -164,7 +167,7 @@ The nuclei engine can be updated to latest version by using the `-update` flag.
 
 ## **Nuclei** Usage
 
-```bash
+```
 nuclei -h
 ```
 
