@@ -20,7 +20,7 @@ title: 'Features'
 
 <Tabs>
   <Tab title="Go">
-    ```go 
+    ```bash
     go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
     ```
 
@@ -28,7 +28,7 @@ title: 'Features'
 
   </Tab>
   <Tab title="Brew">
-    ```
+    ```bash
     brew install nuclei
     ```
 
@@ -36,12 +36,12 @@ title: 'Features'
 
   </Tab>
   <Tab title="Docker">
-    ```
+    ```bash
     docker pull projectdiscovery/nuclei:latest
     ```
   </Tab>
   <Tab title="Github">
-    ```
+    ```bash
     git clone https://github.com/projectdiscovery/nuclei.git; \
     cd nuclei/v2/cmd/nuclei; \
     go build; \
@@ -53,7 +53,7 @@ title: 'Features'
 
   </Tab>
   <Tab title="Binary">
-    ```
+    ```bash
     https://github.com/projectdiscovery/nuclei/releases
     ```
 
@@ -64,7 +64,7 @@ title: 'Features'
 
   </Tab>
   <Tab title="Helm">
-    ```
+    ```bash
     git clone https://github.com/projectdiscovery/nuclei.git
     cd nuclei/helm
     helm upgrade --install nuclei . -f values.yaml 
@@ -113,7 +113,6 @@ To use this feature, users need to set the following environment variables:
     ```
   </Accordion>
 
-{' '}
 <Accordion title="For AWS Bucket" icon="pencil">
   ``` export AWS_ACCESS_KEY=AKIAXXXXXXXX export AWS_SECRET_KEY=XXXXXX export
   AWS_REGION=us-xxx-1 export AWS_TEMPLATE_BUCKET=aws_bucket_name ```
@@ -130,7 +129,7 @@ To use this feature, users need to set the following environment variables:
 
 Once the environment variables are set, following command to download the custom templates:
 
-```
+```bash
 nuclei -update-templates
 ```
 
