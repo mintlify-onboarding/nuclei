@@ -6,6 +6,8 @@ title: 'Features'
 
 <Note>
 
+**Features**
+
 - **HTTP**, **DNS**, **TCP**, **SSL**, **FILE** protocol support
 - Fully configurable templates.
 - Large scale scanning.
@@ -111,6 +113,8 @@ To use this feature, users need to set the following environment variables:
     ```
   </Accordion>
 
+{' '}
+
 <Accordion title="For AWS Bucket" icon="pencil">
   ``` export AWS_ACCESS_KEY=AKIAXXXXXXXX export AWS_SECRET_KEY=XXXXXX export
   AWS_REGION=us-xxx-1 export AWS_TEMPLATE_BUCKET=aws_bucket_name ```
@@ -127,7 +131,7 @@ To use this feature, users need to set the following environment variables:
 
 Once the environment variables are set, following command to download the custom templates:
 
-```bash
+```
 nuclei -update-templates
 ```
 
