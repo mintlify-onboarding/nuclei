@@ -1,5 +1,5 @@
 ---
-title: "Features"
+title: 'Features'
 ---
 
 ## **Nuclei** Features
@@ -16,7 +16,6 @@ title: "Features"
 
 </Note>
 
-
 ## **Nuclei** Installation
 
 <Tabs>
@@ -26,6 +25,7 @@ title: "Features"
     ```
 
     <Note>Nuclei require latest **GO** version to install successfully.</Note>
+
   </Tab>
   <Tab title="Brew">
     ```
@@ -50,6 +50,7 @@ title: "Features"
     ```
 
     <Note> Nuclei require the latest **GO** version to install successfully.</Note>
+
   </Tab>
   <Tab title="Binary">
     ```
@@ -60,6 +61,7 @@ title: "Features"
     - Download the latest binary for your OS.
     - Unzip the ready to run binary.
     </Tip>
+
   </Tab>
   <Tab title="Helm">
     ```
@@ -71,14 +73,13 @@ title: "Features"
     <Tip>
     This Helm chart creates two primary resources (intended to be configured via `values.yaml`):
 
-	    - A Kubernetes CronJob to run Nuclei on a defined schedule
+        - A Kubernetes CronJob to run Nuclei on a defined schedule
 
-	    - An [Interactsh](https://github.com/projectdiscovery/interactsh) service for Nuclei to use
+        - An [Interactsh](https://github.com/projectdiscovery/interactsh) service for Nuclei to use
     </Tip>
+
 </Tab>
 </Tabs>
-
-
 
 ## Nuclei **Templates**
 
@@ -112,25 +113,18 @@ To use this feature, users need to set the following environment variables:
     ```
   </Accordion>
 
-  <Accordion title="For AWS Bucket" icon="pencil">
-    ```
-    export AWS_ACCESS_KEY=AKIAXXXXXXXX
-    export AWS_SECRET_KEY=XXXXXX
-    export AWS_REGION=us-xxx-1
-    export AWS_TEMPLATE_BUCKET=aws_bucket_name
-    ```
-  </Accordion>
-  
-  <Accordion title="For Azure Blob Storage" icon="pencil">
-    ```
-    export AZURE_TENANT_ID=00000000-0000-0000-0000-000000000000
-    export AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000
-    export AZURE_CLIENT_SECRET=00000000-0000-0000-0000-000000000000
-    export AZURE_SERVICE_URL=https://XXXXXXXXXX.blob.core.windows.net/
-    export AZURE_CONTAINER_NAME=templates
-    ```
-  </Accordion>
-
+{' '}
+<Accordion title="For AWS Bucket" icon="pencil">
+  ``` export AWS_ACCESS_KEY=AKIAXXXXXXXX export AWS_SECRET_KEY=XXXXXX export
+  AWS_REGION=us-xxx-1 export AWS_TEMPLATE_BUCKET=aws_bucket_name ```
+</Accordion>
+<Accordion title="For Azure Blob Storage" icon="pencil">
+  ``` export AZURE_TENANT_ID=00000000-0000-0000-0000-000000000000 export
+  AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000 export
+  AZURE_CLIENT_SECRET=00000000-0000-0000-0000-000000000000 export
+  AZURE_SERVICE_URL=https://XXXXXXXXXX.blob.core.windows.net/ export
+  AZURE_CONTAINER_NAME=templates ```
+</Accordion>
 
 </AccordionGroup>
 
@@ -162,17 +156,20 @@ nuclei -t github/my_custom_template -u https://example.com
 
 The nuclei engine can be updated to latest version by using the `-update` flag.
 
-<Tip>Writing your own unique templates will always keep you one step ahead of others.</Tip>
-
+<Tip>
+  Writing your own unique templates will always keep you one step ahead of
+  others.
+</Tip>
 
 ## **Nuclei** Usage
 
-```
+```bash
 nuclei -h
 ```
 
 This will display help for the tool. Here are all the switches it supports.
-```
+
+```bash
 Nuclei is a fast, template based vulnerability scanner focusing
 on extensive configurability, massive extensibility and ease of use.
 
@@ -292,7 +289,7 @@ OPTIMIZATIONS:
    -mhe, -max-host-error int           max errors for a host before skipping from scan (default 30)
    -nmhe, -no-mhe                      disable skipping host from scan based on errors
    -project                            use a project folder to avoid sending same request multiple times
-   -project-path string                set a specific project path 
+   -project-path string                set a specific project path
    -spm, -stop-at-first-match          stop processing HTTP requests after the first match (may break template/workflow logic)
    -stream                             stream mode - start elaborating without sorting the input
    -ss, -scan-strategy value           strategy to use while scanning(auto/host-spray/template-spray) (default 0)
@@ -340,12 +337,11 @@ STATISTICS:
    -mp, -metrics-port int    port to expose nuclei metrics on (default 9092)
 ```
 
-
 ## Running **Nuclei**
 
 Nuclei templates can be primarily executed in two ways,
 
-1) **Templates** (`-t/templates`)
+1. **Templates** (`-t/templates`)
 
 As default, all the templates (except nuclei-ignore list) gets executed from default template installation path.
 
@@ -371,7 +367,7 @@ Similarly, Templates can be executed against list of URLs.
 nuclei -list http_urls.txt
 ```
 
-2) **Workflows** (`-w/workflows`)
+2. **Workflows** (`-w/workflows`)
 
 ```sh
 nuclei -u https://example.com -w workflows/
@@ -387,18 +383,17 @@ nuclei -list http_urls.txt -w workflows/wordpress-workflow.yaml
 
 Nuclei engine supports three basic filters to customize template execution.
 
-
 1. Tags (`-tags`)
 
-    Filter based on tags field available in the template.
+   Filter based on tags field available in the template.
 
 2. Severity (`-severity`)
 
-    Filter based on severity field available in the template.
+   Filter based on severity field available in the template.
 
 3. Author (`-author`)
 
-    Filter based on author field available in the template.
+   Filter based on author field available in the template.
 
 As default, Filters are applied on installed path of templates and can be customized with manual template path input.
 
@@ -447,7 +442,6 @@ Also, every key-value pair from the template metadata section is accessible. All
 
 Similarly, all filters are supported in workflows as well.
 
-
 ```sh
 nuclei -w workflows/wordpress-workflow.yaml -severity critical,high -list http_urls.txt
 ```
@@ -457,6 +451,7 @@ nuclei -w workflows/wordpress-workflow.yaml -severity critical,high -list http_u
 **Workflows**
 
 In Workflows, Nuclei filters are applied on templates or sub-templates running via workflows, not on the workflows itself.
+
 </Note>
 
 ### Rate **Limits**
@@ -464,23 +459,23 @@ In Workflows, Nuclei filters are applied on templates or sub-templates running v
 Nuclei have multiple rate limit controls for multiple factors, including a number of templates to execute in parallel, a number of hosts to be scanned in parallel for each template, and the global number of request / per second you wanted to make/limit using nuclei, here is an example of each flag with description.
 
 | Flag       | Description                                                          |
-|------------|----------------------------------------------------------------------|
+| ---------- | -------------------------------------------------------------------- |
 | rate-limit | Control the total number of request to send per seconds              |
 | bulk-size  | Control the number of hosts to process in parallel for each template |
 | c          | Control the number of templates to process in parallel               |
 
-    
-
 Feel free to play with these flags to tune your nuclei scan speed and accuracy.
 
-<Tip> `rate-limit` flag takes precedence over the other two flags, the number of requests/seconds can't go beyond the value defined for `rate-limit` flag regardless the value of `c` and `bulk-size` flag.</Tip>
-
-
+<Tip>
+  {' '}
+  `rate-limit` flag takes precedence over the other two flags, the number of requests/seconds
+  can't go beyond the value defined for `rate-limit` flag regardless the value of
+  `c` and `bulk-size` flag.
+</Tip>
 
 ### Traffic **Tagging**
 
 Many BugBounty platform/programs requires you to identify the HTTP traffic you make, this can be achieved by setting custom header using config file at `$HOME/.config/nuclei/config.yaml` or CLI flag `-H / header`
-
 
 <Note>
 
@@ -492,36 +487,35 @@ Many BugBounty platform/programs requires you to identify the HTTP traffic you m
       - 'X-BugBounty-Hacker: h1/geekboy'
       - 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) / nuclei'
     ```
+
 </Note>
 
 <Note>
-**Setting custom header using CLI flag**
-    ```yaml
-    nuclei -header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) / nuclei' -list urls.txt -tags cves
-    ```
+  **Setting custom header using CLI flag** ```yaml nuclei -header 'User-Agent:
+  Mozilla/5.0 (Windows NT 10.0; WOW64) / nuclei' -list urls.txt -tags cves ```
 </Note>
-
 
 ### Template **Exclusion**
 
-Nuclei supports a variety of methods for excluding / blocking templates from execution. By default, **nuclei** excludes the tags/templates listed below from execution to avoid unexpected fuzz based scans and some that are not supposed to run for mass scan, and these can be easily overwritten  with nuclei configuration file / flags.
+Nuclei supports a variety of methods for excluding / blocking templates from execution. By default, **nuclei** excludes the tags/templates listed below from execution to avoid unexpected fuzz based scans and some that are not supposed to run for mass scan, and these can be easily overwritten with nuclei configuration file / flags.
 
 - Default [Template ignore](https://github.com/projectdiscovery/nuclei-templates/blob/master/.nuclei-ignore) list.
 
-
-<Warning>**nuclei-ignore** file is not supposed to be updated / edited / removed by user, to overwrite default ignore list, utilize [nuclei configuration](/getting-started/features#nuclei-config) file. </Warning>
+<Warning>
+  **nuclei-ignore** file is not supposed to be updated / edited / removed by
+  user, to overwrite default ignore list, utilize [nuclei
+  configuration](/getting-started/features#nuclei-config) file.{' '}
+</Warning>
 
 Nuclei engine supports two ways to manually exclude templates from scan,
 
 1. Exclude Templates (`-exclude-templates/exclude`)
 
-    **exclude-templates** flag is used to exclude single or multiple templates and directory, multiple `-exclude-templates` flag can be used to provide multiple values.
-
+   **exclude-templates** flag is used to exclude single or multiple templates and directory, multiple `-exclude-templates` flag can be used to provide multiple values.
 
 2. Exclude Tags (`-exclude-tags/etags`)
 
-    **exclude-tags** flag is used to exclude templates based in defined tags, single or multiple can be used to exclude templates.
-
+   **exclude-tags** flag is used to exclude templates based in defined tags, single or multiple can be used to exclude templates.
 
 <Note>
 **Example of excluding single template**
@@ -529,6 +523,7 @@ Nuclei engine supports two ways to manually exclude templates from scan,
     ```
     nuclei -list urls.txt -t cves/ -exclude-templates cves/2020/CVE-2020-XXXX.yaml
     ```
+
 </Note>
 
 <Note>
@@ -537,6 +532,7 @@ Nuclei engine supports two ways to manually exclude templates from scan,
     ```
     nuclei -list urls.txt -exclude-templates exposed-panels/ -exclude-templates technologies/
     ```
+
 </Note>
 
 <Note>
@@ -545,6 +541,7 @@ Nuclei engine supports two ways to manually exclude templates from scan,
     ```
     nuclei -l urls.txt -t cves/ -etags xss
     ```
+
 </Note>
 
 <Note>
@@ -553,6 +550,7 @@ Nuclei engine supports two ways to manually exclude templates from scan,
     ```
     nuclei -l urls.txt -t cves/ -etags sqli,rce
     ```
+
 </Note>
 
 To easily overwrite [nuclei-ignore](https://github.com/projectdiscovery/nuclei-templates/blob/master/.nuclei-ignore), Nuclei engine supports **include-tags** / **include-templates** flag.
@@ -563,14 +561,15 @@ To easily overwrite [nuclei-ignore](https://github.com/projectdiscovery/nuclei-t
     ```
     nuclei -l urls.txt -include-tags iot,misc,fuzz
     ```
-</Note>
 
+</Note>
 
 ### Uncover **Integration**
 
 Nuclei supports integration with [uncover](https://github.com/projectdiscovery/uncover) to executes template against hosts returned by uncover for the given query.
 
 Here are uncover options to use -
+
 ```console
 nuclei -h uncover
 
@@ -582,7 +581,9 @@ UNCOVER:
    -ul, -uncover-limit int        uncover results to return (default 100)
    -ucd, -uncover-delay int       delay between uncover query requests in seconds (0 to disable) (default 1)
 ```
+
 You have set the API key of the engine you are using as an environment variable in your shell.
+
 ```
 export SHODAN_API_KEY=xxx
 export CENSYS_API_ID=xxx
@@ -593,13 +594,16 @@ export QUAKE_TOKEN=xxx
 export HUNTER_API_KEY=xxx
 export ZOOMEYE_API_KEY=xxx
 ```
+
 Required API keys can be obtained by signing up on following platform [Shodan](https://account.shodan.io/register), [Censys](https://censys.io/register), [Fofa](https://fofa.info/toLogin), [Quake](https://quake.360.net/quake/#/index), [Hunter](https://user.skyeye.qianxin.com/user/register?next=https%3A//hunter.qianxin.com/api/uLogin&fromLogin=1) and [ZoomEye](https://www.zoomeye.org/login) .
 
 Example of template execution using a search query.
+
 ```
 export SHODAN_API_KEY=xxx
 nuclei -id 'CVE-2021-26855' -uq 'vuln:CVE-2021-26855' -ue shodan
 ```
+
 It can also read queries from templates metadata and execute template against hosts returned by uncover for that query.
 
 Example of template execution using template-defined search queries.
@@ -607,8 +611,8 @@ Example of template execution using template-defined search queries.
 Template snippet of [CVE-2021-26855](https://github.com/projectdiscovery/nuclei-templates/blob/master/cves/2021/CVE-2021-26855.yaml)
 
 ```yaml
-  metadata:
-    shodan-query: 'vuln:CVE-2021-26855'
+metadata:
+  shodan-query: 'vuln:CVE-2021-26855'
 ```
 
 ```console
@@ -618,33 +622,35 @@ nuclei -tags cve -uncover
 
 We can update the nuclei configuration file to include these tags for all scans.
 
-
 ## **Mass Scanning** using Nuclei
 
-Nuclei fully utilises resources to optimise scanning speed. However, when scanning **thousands**, if not **millions, of targets**, scanning using default parameter values is bound to cause some performance issues ex: low RPS, Slow Scans, Process Killed, High RAM consumption, etc. this is due to limited resources and network I/O. Hence following parameters need to be tuned based on system configuration and targets. 
+Nuclei fully utilises resources to optimise scanning speed. However, when scanning **thousands**, if not **millions, of targets**, scanning using default parameter values is bound to cause some performance issues ex: low RPS, Slow Scans, Process Killed, High RAM consumption, etc. this is due to limited resources and network I/O. Hence following parameters need to be tuned based on system configuration and targets.
 
-| Flag          | Short |  Description                                                         |
-|---------------|-------|----------------------------------------------------------------------|
-| scan-strategy |  -ss  | Scan Strategy to Use (auto/host-spray/template-spray)                |
-| bulk-size     |  -bs  | Max Number of targets to scan in parallel                            |
-| concurrency   |  -c   | Max Number of templates to use in parallel while scanning            |
-| stream        |   -   | stream mode - start elaborating without sorting the input            |
+| Flag          | Short | Description                                               |
+| ------------- | ----- | --------------------------------------------------------- |
+| scan-strategy | -ss   | Scan Strategy to Use (auto/host-spray/template-spray)     |
+| bulk-size     | -bs   | Max Number of targets to scan in parallel                 |
+| concurrency   | -c    | Max Number of templates to use in parallel while scanning |
+| stream        | -     | stream mode - start elaborating without sorting the input |
 
-
-<Note>These are common parameters that need to be tuned . apart from these `-rate-limit`,`-retries`,`-timeout`,`-max-host-error` also need to be tuned based on targets that are being scanned</Note>
+<Note>
+  These are common parameters that need to be tuned . apart from these
+  `-rate-limit`,`-retries`,`-timeout`,`-max-host-error` also need to be tuned
+  based on targets that are being scanned
+</Note>
 
 ### Which Scan Strategy to Use?
 
 **scan-strategy** option can have three possible values
 
-- `host-spray`     : All templates are iterated over each target.
+- `host-spray` : All templates are iterated over each target.
 - `template-spray` : Each template is iterated over all targets.
-- `auto`(Default)  : Placeholder of `template-spray` for now.
+- `auto`(Default) : Placeholder of `template-spray` for now.
 
 User should select **Scan Strategy** based on number of targets and Each strategy has its own pros & cons.
 
- - When targets < 1000 . `template-spray` should be used . this strategy is slightly faster than `host-spray` but uses more RAM and doesnot optimally reuse connections.
- - When targets > 1000 . `host-spray` should be used . this strategy uses less RAM than `template-spray` and reuses HTTP connections along with some minor improvements and these are crucial when mass scanning.
+- When targets < 1000 . `template-spray` should be used . this strategy is slightly faster than `host-spray` but uses more RAM and doesnot optimally reuse connections.
+- When targets > 1000 . `host-spray` should be used . this strategy uses less RAM than `template-spray` and reuses HTTP connections along with some minor improvements and these are crucial when mass scanning.
 
 ### Concurrency & Bulk-Size
 
@@ -652,14 +658,13 @@ Whatever the `scan-strategy` is `-concurrency` and `-bulk-size` are crucial for 
 
 **If `scan-strategy` is template-spray**
 
-  - `-concurrency` < `bulk-size` (Ex: `-concurrency 10 -bulk-size 200`)
+- `-concurrency` < `bulk-size` (Ex: `-concurrency 10 -bulk-size 200`)
 
 **If `scan-strategy` is host-spray**
 
-  - `-concurrency` > `bulk-size` (Ex: `-concurrency 200 -bulk-size 10`) 
+- `-concurrency` > `bulk-size` (Ex: `-concurrency 200 -bulk-size 10`)
 
-
-<Tip> `-concurrency` x `-bulk-size` \<\= 2500 (depending on system config) </Tip> 
+<Tip> `-concurrency` x `-bulk-size` \<\= 2500 (depending on system config) </Tip>
 
 ### Stream
 
@@ -667,14 +672,14 @@ This option should only be enabled if targets > 10k . This skips any type of sor
 
 ## Nuclei **Config**
 
-
->Since release of [v.2.3.2](https://blog.projectdiscovery.io/nuclei-v2-3-0-release/) nuclei uses [goflags](https://github.com/projectdiscovery/goflags) for clean CLI experience and long/short formatted flags.
+> Since release of [v.2.3.2](https://blog.projectdiscovery.io/nuclei-v2-3-0-release/) nuclei uses [goflags](https://github.com/projectdiscovery/goflags) for clean CLI experience and long/short formatted flags.
 >
->[goflags](https://github.com/projectdiscovery/goflags) comes with auto-generated config file support that coverts all available CLI flags into config file, basically you can define all CLI flags into config file to avoid repetitive CLI flags that loads as default for every scan of nuclei.
+> [goflags](https://github.com/projectdiscovery/goflags) comes with auto-generated config file support that coverts all available CLI flags into config file, basically you can define all CLI flags into config file to avoid repetitive CLI flags that loads as default for every scan of nuclei.
 >
->Default path of nuclei config file is `$HOME/.config/nuclei/config.yaml`, uncomment and configure the flags you wish to run as default.
+> Default path of nuclei config file is `$HOME/.config/nuclei/config.yaml`, uncomment and configure the flags you wish to run as default.
 
 Here is an example config file:
+
 ```yaml
 # Headers to include with all HTTP request
 header:
@@ -711,6 +716,7 @@ rate-limit: 500
 bulk-size: 50
 concurrency: 50
 ```
+
 Once configured, **config file be used as default**, additionally custom config file can be also provided using `-config` flag.
 
 <Note>
@@ -719,32 +725,30 @@ Once configured, **config file be used as default**, additionally custom config 
     ```
     nuclei -config project.yaml -list urls.txt
     ```
+
 </Note>
 
 ## Nuclei **Reporting**
 
 Nuclei comes with reporting module support with the release of [v2.3.0](https://nuclei.projectdiscovery.io/releases/nuclei-changelog/#nuclei-v230-10-march-2021) supporting GitHub, GitLab, and Jira integration, this allows nuclei engine to create automatic tickets on the supported platform based on found results.
 
-| **Platform** | GitHub | GitLab | Jira | Markdown | SARIF | Elasticsearch | Splunk HEC |
-|--------------|--------|--------|------|----------|-------|---------------|------------|
-| **Support**  | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg>      | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg>       |  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg>    |   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg>       |  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg>     |    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg>           |    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg>        |
-
+| **Platform** | GitHub                                                                                                                                                                                                                                                                                                            | GitLab                                                                                                                                                                                                                                                                                                            | Jira                                                                                                                                                                                                                                                                                                              | Markdown                                                                                                                                                                                                                                                                                                          | SARIF                                                                                                                                                                                                                                                                                                             | Elasticsearch                                                                                                                                                                                                                                                                                                     | Splunk HEC                                                                                                                                                                                                                                                                                                        |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Support**  | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg> | <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm16.28-2.72a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z"></path></svg> |
 
 `-rc, -report-config` flag can be used to provide a config file to read configuration details of the platform to integrate. Here is an [example config file](https://github.com/projectdiscovery/nuclei/blob/master/v2/cmd/nuclei/issue-tracker-config.yaml) for all supported platforms.
-
-
 
 For example, to create tickets on GitHub, create a config file with the following content and replace the appropriate values:
 
 ```yaml
 # GitHub contains configuration options for GitHub issue tracker
 
-github: 
-  username: "$user"
-  owner: "$user"
-  token: "$token"
-  project-name: "testing-project"
-  issue-label: "Nuclei"
+github:
+  username: '$user'
+  owner: '$user'
+  token: '$token'
+  project-name: 'testing-project'
+  issue-label: 'Nuclei'
 ```
 
 To store results in Elasticsearch, create a config file with the following content and replace the appropriate values:
@@ -766,7 +770,7 @@ To forward results to Splunk HEC, create a config file with the following conten
 # splunkhec contains configuration options for splunkhec exporter
 splunkhec:
   # Hostname for splunkhec instance
-  host: "$hec_host"
+  host: '$hec_host'
   # Port is the port of splunkhec instance
   port: 8088
   # IndexName is the name of the splunkhec index
@@ -776,14 +780,16 @@ splunkhec:
   # SSLVerification disables SSL verification for splunkhec
   ssl-verification: true
   # HEC Token for the splunkhec instance
-  token: "$hec_token"  
+  token: '$hec_token'
 ```
+
 To forward results to Jira, create a config file with the following content and replace the appropriate values:
 
-The Jira reporting options allows for custom fields, as well as using variables from the Nuclei templates in those custom fields. 
+The Jira reporting options allows for custom fields, as well as using variables from the Nuclei templates in those custom fields.
 The supported variables currently are: `$CVSSMetrics`, `$CVEID`, `$CWEID`, `$Host`, `$Severity`, `$CVSSScore`, `$Name`
 
 In addition, Jira is strict when it comes to custom field entry. If the field is a dropdown, Jira accepts only the case sensitive specific string and the API call is slightly different. To support this, there are three types of customfields.
+
 - `name` is the dropdown value
 - `id` is the ID value of the dropdown
 - `freeform` is if the customfield the entry of any value
@@ -819,11 +825,11 @@ jira:
   status-not: Closed
   # Customfield supports name, id and freeform. name and id are to be used when the custom field is a dropdown.
   # freeform can be used if the custom field is just a text entry
-  # Variables can be used to pull various pieces of data from the finding itself. 
+  # Variables can be used to pull various pieces of data from the finding itself.
   # Supported variables: $CVSSMetrics, $CVEID, $CWEID, $Host, $Severity, $CVSSScore, $Name
   custom_fields:
-    customfield_00001: 
-      name: "Nuclei"
+    customfield_00001:
+      name: 'Nuclei'
     customfield_00002:
       freeform: $CVSSMetrics
     customfield_00003:
@@ -877,8 +883,11 @@ It is also possible to visualize Nuclei results using **sarif** file.
 
 more info [here](https://github.com/projectdiscovery/nuclei/pull/2925).
 
-<Note>These are **not official** viewers of Nuclei and `Nuclei` has no liability towards any of these options to visualize **Nuclei** results. These are just some publicly available options to visualize SARIF File.</Note>
-
+<Note>
+  These are **not official** viewers of Nuclei and `Nuclei` has no liability
+  towards any of these options to visualize **Nuclei** results. These are just
+  some publicly available options to visualize SARIF File.
+</Note>
 
 ## Scan **Metrics**
 
