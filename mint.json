@@ -19,6 +19,9 @@
     "name": "Getting Started",
     "icon": "circle-play"
   },
+  "primaryTab": {
+    "name": "Getting Started"
+  },
   "tabs": [
     {
       "name": "Templating Guide",
