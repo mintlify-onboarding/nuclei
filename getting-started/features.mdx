@@ -1,15 +1,14 @@
 ---
 title: 'Features'
+description: 'Nuclei can do the following'
 ---
 
 <Note>
-#### Features
-
-- **HTTP**, **DNS**, **TCP**, **SSL**, **FILE** protocol support
-- Fully configurable templates.
-- Large scale scanning.
-- Out of band based detection.
-- Easily write your own templates.
+• **HTTP**, **DNS**, **TCP**, **SSL**, **FILE** protocol support<br/>
+• Fully configurable templates.<br/>
+• Large scale scanning.<br/>
+• Out of band based detection.<br/>
+• Easily write your own templates.<br/>
 
 </Note>
 
@@ -471,10 +470,9 @@ Nuclei have multiple rate limit controls for multiple factors, including a numbe
 Feel free to play with these flags to tune your nuclei scan speed and accuracy.
 
 <Tip>
-  {' '}
-  `rate-limit` flag takes precedence over the other two flags, the number of requests/seconds
-  can't go beyond the value defined for `rate-limit` flag regardless the value of
-  `c` and `bulk-size` flag.
+  `rate-limit` flag takes precedence over the other two flags, the number of
+  requests/seconds can't go beyond the value defined for `rate-limit` flag
+  regardless the value of `c` and `bulk-size` flag.
 </Tip>
 
 ### Traffic **Tagging**
@@ -482,21 +480,25 @@ Feel free to play with these flags to tune your nuclei scan speed and accuracy.
 Many BugBounty platform/programs requires you to identify the HTTP traffic you make, this can be achieved by setting custom header using config file at `$HOME/.config/nuclei/config.yaml` or CLI flag `-H / header`
 
 <Note>
+Setting custom header using config file88
 
-**Setting custom header using config file88**
-
-    ```yaml
-    # Headers to include with each request.
-    header:
-      - 'X-BugBounty-Hacker: h1/geekboy'
-      - 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) / nuclei'
-    ```
+```yaml
+# Headers to include with each request.
+header:
+  - 'X-BugBounty-Hacker: h1/geekboy'
+  - 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) / nuclei'
+```
 
 </Note>
 
 <Note>
-  **Setting custom header using CLI flag** ```yaml nuclei -header 'User-Agent:
-  Mozilla/5.0 (Windows NT 10.0; WOW64) / nuclei' -list urls.txt -tags cves ```
+
+Setting custom header using CLI flag
+
+```yaml
+nuclei -header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) / nuclei' -list urls.txt -tags cves
+```
+
 </Note>
 
 ### Template **Exclusion**
@@ -522,49 +524,49 @@ Nuclei engine supports two ways to manually exclude templates from scan,
    **exclude-tags** flag is used to exclude templates based in defined tags, single or multiple can be used to exclude templates.
 
 <Note>
-**Example of excluding single template**
+Example of excluding single template
 
-    ```
-    nuclei -list urls.txt -t cves/ -exclude-templates cves/2020/CVE-2020-XXXX.yaml
-    ```
-
-</Note>
-
-<Note>
-**Example of multiple template exclusion**
-
-    ```
-    nuclei -list urls.txt -exclude-templates exposed-panels/ -exclude-templates technologies/
-    ```
+```
+nuclei -list urls.txt -t cves/ -exclude-templates cves/2020/CVE-2020-XXXX.yaml
+```
 
 </Note>
 
 <Note>
-**Example of excluding templates with single tag**
+Example of multiple template exclusion
 
-    ```
-    nuclei -l urls.txt -t cves/ -etags xss
-    ```
+```
+nuclei -list urls.txt -exclude-templates exposed-panels/ -exclude-templates technologies/
+```
 
 </Note>
 
 <Note>
-**Example of excluding templates with multiple tags**
+Example of excluding templates with single tag
 
-    ```
-    nuclei -l urls.txt -t cves/ -etags sqli,rce
-    ```
+```
+nuclei -l urls.txt -t cves/ -etags xss
+```
+
+</Note>
+
+<Note>
+Example of excluding templates with multiple tags
+
+```
+nuclei -l urls.txt -t cves/ -etags sqli,rce
+```
 
 </Note>
 
 To easily overwrite [nuclei-ignore](https://github.com/projectdiscovery/nuclei-templates/blob/master/.nuclei-ignore), Nuclei engine supports **include-tags** / **include-templates** flag.
 
 <Note>
-**Example of running blocked templates**
+Example of running blocked templates
 
-    ```
-    nuclei -l urls.txt -include-tags iot,misc,fuzz
-    ```
+```
+nuclei -l urls.txt -include-tags iot,misc,fuzz
+```
 
 </Note>
 
